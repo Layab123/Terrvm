@@ -34,10 +34,7 @@ module "azurerm_public_ip" {
 }
 
 module "azurerm_network_interface" {
-    depends_on = [ module.azurerm_subnet ]
+  depends_on = [ module.azurerm_subnet ]
   source = "../module/nic"
   nic    = var.nic
-  pip    = var.pip
-  subnets = var.subnets
-
 }
