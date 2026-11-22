@@ -1,5 +1,5 @@
-resource "azurerm_network_interface" "nic_name" {
-    for_each = var.nic
+resource "azurerm_network_interface" "network_interfaces" {
+    for_each = var.network_interface
   name                = each.value.name
   location            = each.value.location
   resource_group_name = each.value.resource_group_name
