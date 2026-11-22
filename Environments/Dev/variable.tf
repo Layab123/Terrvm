@@ -1,8 +1,7 @@
 variable "rg" {}
 variable "vnet" {}
 variable "subnets" {}
-#variable "nsg" {}
+variable "nsg" {}
 variable "pip" {}
-variable "nic" {
-
-}
+variable "nic" {}
+variable "virtual_machines"{}

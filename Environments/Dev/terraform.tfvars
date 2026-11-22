@@ -25,13 +25,13 @@ subnets = {
   }
 }
 
-# nsg = {
-#   nsg1 = {
-#     name                = "gd-linux-nsg"
-#     location            = "eastus"
-#     resource_group_name = "dev-gd_linux_vm_rg"
-#   }
-# }
+nsg = {
+  nsg1 = {
+    name                = "gd-linux-nsg"
+    location            = "eastus"
+    resource_group_name = "dev-gd_linux_vm_rg"
+  }
+}
 
 pip = {
   Public_IP1 = {
@@ -55,4 +55,25 @@ nic = {
     virtual_network_name = "dev-gd-linux-vnet"
     private_ip_address_allocation = "Dynamic"
   }
+}
+
+virtual_machines = {
+  frontend_1 = {
+    nic_name        = "dev-gd-linux-vm-frontend"
+    location        = "eastus"
+    
+    subnet_name         = "dev-gd-linux-subnet"
+    virtual_network_name = "dev-gd-linux-vnet"
+    name         = "dev-gd-linux-vm-frontend"
+    size         = "Standard_B1s"
+    admin_username  = "devopsadmin"
+    resource_group_name = "dev-gd_linux_vm_rg"
+    key_vault_name  = "kv-chor-dev-123"
+    secret_name     = "admin-password"
+    image_publisher = "Canonical"
+    image_offer     = "0001-com-ubuntu-server-jammy"
+    image_sku       = "22_04-lts"
+    image_version   = "latest"
+  }
+
 }
