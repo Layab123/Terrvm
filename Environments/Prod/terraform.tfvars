@@ -1,6 +1,6 @@
 rg = {
   rg1 = {
-    name     = "gd_linux_vm_rg"
+    name     = "prod-gd_linux_vm_rg"
     location = "eastus"
   }
 }
@@ -8,9 +8,9 @@ rg = {
 
 vnet = {
   vnet1 = {
-    name                = "gd-linux-vnet"
+    name                = "prod-gd-linux-vnet"
     location            = "eastus"
-    resource_group_name = "gd_linux_vm_rg"
+    resource_group_name = "prod-gd_linux_vm_rg"
     address_space       = ["10.0.0.0/16"]
   }
 }
@@ -18,9 +18,9 @@ vnet = {
 
 subnets = {
   subnet1 = {
-    name                 = "gd-linux-subnet"
-    resource_group_name  = "gd_linux_vm_rg"
-    virtual_network_name = "gd-linux-vnet"
+    name                 = "prod-gd-linux-subnet"
+    resource_group_name  = "prod-gd_linux_vm_rg"
+    virtual_network_name = "prod-gd-linux-vnet"
     address_prefixes     = ["10.0.1.0/24"]
   }
 }
@@ -29,14 +29,14 @@ subnets = {
 #   nsg1 = {
 #     name                = "gd-linux-nsg"
 #     location            = "eastus"
-#     resource_group_name = "gd_linux_vm_rg"
+#     resource_group_name = "prod-gd_linux_vm_rg"
 #   }
 # }
 
 pip = {
   Public_IP1 = {
-    name                = "gd-linux-ip"
-    resource_group_name = "gd_linux_vm_rg"
+    name                = "prod-gd-linux-ip"
+    resource_group_name = "prod-gd_linux_vm_rg"
     location            = "eastus"
     allocation_method   = "Static"
   }
@@ -46,12 +46,13 @@ pip = {
 nic = {
   nic1 = {
 
-    name                = "nics"
+    name                = "prod-gd-linux-nic"
     location            = "eastus"
-    resource_group_name = "gd_linux_vm_rg"
-
+    resource_group_name = "prod-gd_linux_vm_rg"
+    public_ip_name      = "prod-gd-linux-ip"
+    subnet_name         = "prod-gd-linux-subnet"
     ip_config_name = "config123"
-
+    virtual_network_name = "prod-gd-linux-vnet"
     private_ip_address_allocation = "Dynamic"
   }
 }
