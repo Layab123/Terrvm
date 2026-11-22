@@ -1,3 +1,3 @@
-variable "public_IP" {
+variable "public_ip" {
   
 }

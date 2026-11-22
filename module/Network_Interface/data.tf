@@ -1,15 +1,15 @@
 data "azurerm_subnet" "subnets" {
-    for_each = var.subnets
-  name                 = each.value.name
+    for_each = var.network_interface
+  name                 = each.value.subnet_name
   resource_group_name  = each.value.resource_group_name
   virtual_network_name = each.value.virtual_network_name
 
 
 }
 
-data "azurerm_public_ip" "pip" {
-    for_each = var.pip
-  name   = each.value.name
+data "azurerm_public_ip" "public_ips" {
+    for_each = var.network_interface
+  name   = each.value.public_ip_name
   resource_group_name = each.value.resource_group_name
   
 }

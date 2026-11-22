@@ -7,7 +7,7 @@ resource "azurerm_network_interface" "network_interfaces" {
   ip_configuration {
     name                          = each.value.ip_config_name
     subnet_id                     = data.azurerm_subnet.subnets[each.key].id
-    public_ip_address_id          = data.azurerm_public_ip.pip[each.key].id
+    public_ip_address_id          = data.azurerm_public_ip.public_ips[each.key].id
     private_ip_address_allocation = each.value.private_ip_address_allocation
 }
 }
